@@ -1,0 +1,144 @@
+<template>
+<v-app>
+  <v-content >
+
+               <v-container>
+
+              <v-app-bar app 
+              @click="drawer = !drawer" 
+              color="#62B6CB"
+              class="white--text"
+              >              
+              <v-app-bar-nav-icon class="white--text" ></v-app-bar-nav-icon>
+              <v-toolbar-title >Consultas</v-toolbar-title>
+              
+              <v-spacer></v-spacer>
+                                     
+              </v-app-bar>
+                  
+                    <v-navigation-drawer app v-model="drawer" temporary >
+                          <v-card
+                            class="mx-auto"
+                            max-width="600"
+                            permanent
+                            absolute
+                            
+                          >
+
+                          <v-card color="#62B6CB" class="white--text text-center position-fixed"> 
+                              
+                             <div justify-cente>
+                                <v-app-bar-nav-icon  class="white--text"  @click="drawer = !drawer">                                    
+                                   </v-app-bar-nav-icon>
+
+                                    <h1 >Ver totales por</h1>
+                                 </div>
+                                  
+                              
+
+
+                          </v-card>
+                          <v-divider></v-divider>
+
+                            <v-list>
+                              <v-list-item-group v-model="model" mandatory color="#62B6CB">
+                                <v-list-item
+                                  v-for="(item, i) in items"
+                                  :key="i"
+                                  :to="{ name: item.ref }"
+
+                                >
+                                  <v-list-item-icon>
+                                    <v-icon v-text="item.icon" color="#62B6CB"></v-icon>
+                                  </v-list-item-icon>
+                                  
+                                  <v-list-item-content  @click="drawer = !drawer"  >
+                                    <v-list-item-title v-text="item.text" class="blue--text" ></v-list-item-title>
+                                  </v-list-item-content>
+
+
+
+
+                                </v-list-item>
+                              </v-list-item-group>
+                            </v-list>
+                          </v-card>
+                    </v-navigation-drawer>
+                    
+
+                    
+                </v-container>    
+                  
+     
+      <v-container>
+        <router-view/>
+
+      </v-container>
+    
+          </v-content>
+
+
+      <v-card height="100">
+          <v-footer
+            absolute
+            color="#62B6CB"
+
+          >
+            <v-col
+            class="py-4 text-center white--text"              cols="12"
+            >
+              {{ new Date().getFullYear() }} — <strong>NAAN</strong>
+            </v-col>
+          </v-footer>
+        </v-card>
+
+
+</v-app>
+    
+
+</template>
+
+
+<script>
+
+export default {
+  name: 'App',
+  data(){
+    return{
+      
+     drawer:null,
+     items: [
+        {
+          icon: 'mdi-chart-line',
+          text: 'Casos de hoy',
+          ref: 'Nacional',
+        },
+        {
+          icon: 'mdi-fan-alert',
+          text: '',
+          ref: '',
+        },
+        {
+          icon: 'mdi-chart-areaspline',
+          text: 'Casos por comuna',
+            ref: 'Comuna',
+        },
+         {
+          icon: 'mdi-chart-bar',
+          text: 'Cuarentenas Activas',
+            ref: 'CuarentenasActivas',
+        },
+        {
+          icon: 'mdi-equalizer-outline',
+          text: 'Ventiladores',
+            ref: 'Ventiladores',
+        },
+      ],
+      model: 0,
+
+    }
+
+  }
+}
+</script>
+
