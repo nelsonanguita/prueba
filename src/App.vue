@@ -11,22 +11,28 @@
               >              
               <v-app-bar-nav-icon class="white--text" ></v-app-bar-nav-icon>
               <v-toolbar-title >Consultas</v-toolbar-title>
-              
+
               <v-spacer></v-spacer>
                                      
               </v-app-bar>
-                  
+                                             
                     <v-navigation-drawer app v-model="drawer" temporary >
+                    
                           <v-app-bar  
                           @click="drawer = !drawer" 
                           color="#62B6CB"
                           class="white--text"
-                          >              
+                          > 
+                          
                           <v-app-bar-nav-icon class="white--text" ></v-app-bar-nav-icon>
                           <v-toolbar-title ></v-toolbar-title>
                           
                                                 
                           </v-app-bar>
+                          <div> 
+                         <v-img :aspect-ratio="16/9" src="http://www.unionprofesional.com/wp-content/uploads/2020/04/COVID-19-corona-coronavirus-696x492.jpg">
+      </v-img>             
+                    </div>
                                                     <v-spacer></v-spacer>
 
                           <v-divider></v-divider>
@@ -83,10 +89,8 @@
           </v-footer>
         </v-card>
 
-
 </v-app>
-    
-
+   
 </template>
 
 

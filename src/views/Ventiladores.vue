@@ -50,9 +50,10 @@ import axios from "axios";
             value: 'Comuna',
           },
           { text: 'Fecha', value: 'Ventiladores',filterable: false},
-          { text: 'Total', value: 'total' ,filterable: false},
           { text: 'Disponibles', value: 'disponibles' ,filterable: false},
           { text: 'Ocupados', value: 'ocupados' ,filterable: false},
+          { text: 'Total', value: 'total' ,filterable: false},
+
           //{ text: 'Iron (%)', value: 'iron', filterable: false},
         ],
 

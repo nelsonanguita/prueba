@@ -20,9 +20,11 @@
           'items-per-page-options': [15, 20, 30, 40, 50]
       }"
       
-      :items-per-page="15"
+      :items-per-page="20"
       :search="search"
        dense
+         sortBy="Estado"
+        update: sort-asc
     ></v-data-table>
     <Comunas/>  
   </v-card>

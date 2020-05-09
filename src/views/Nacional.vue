@@ -18,17 +18,19 @@
     </template>
             <v-responsive :ratio="16/9">
                         <v-data-table 
-                                                  
+                           class="text-xs-center"
                           :headers="headers"
                           :items="desserts"
                           :search="search"
                           dense
                             sortBy="Fecha"
                             update: sort-desc
+                            flex display-3
+                             text-center
                         >
                        <template v-slot:header.Fecha="{ header }">
                         {{ header.text.toUpperCase() }}
-                      </template>
+                      </template> 
                         </v-data-table>
             </v-responsive>
       </div>
