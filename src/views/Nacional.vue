@@ -3,7 +3,7 @@
   <v-card >
 
     <v-card-title >
-        Total de Casos Diarios Acumulados - Actualizado al día de hoy
+        Total de Casos Diarios Acumulados 
 
               <v-spacer></v-spacer>
       <v-text-field
@@ -11,16 +11,25 @@
 
         hide-details
       ></v-text-field>
-      <div class="elevation-1"  >
+      <div  >
+
+        <template >
+      
+    </template>
             <v-responsive :ratio="16/9">
                         <v-data-table 
+                                                  
                           :headers="headers"
                           :items="desserts"
                           :search="search"
-                           :pagination.sync="pagination"
-                          select-all
                           dense
-                        ></v-data-table>
+                            sortBy="Fecha"
+                            update: sort-desc
+                        >
+                       <template v-slot:header.Fecha="{ header }">
+                        {{ header.text.toUpperCase() }}
+                      </template>
+                        </v-data-table>
             </v-responsive>
       </div>
     </v-card-title>
@@ -39,7 +48,8 @@ import axios from "axios";
       return {
         desserts:[],
           pagination: {
-          sortBy: 'Fecha'
+          sortBy: 'Fecha',
+          descending: true
         },
         search: '',
         headers: [
@@ -47,7 +57,7 @@ import axios from "axios";
 //            Fecha,Casos nuevos con sintomas,Casos totales,Casos recuperados,Fallecidos,
 //             Casos activos,Casos nuevos sin sintomas,Casos nuevos totales
             text: 'Fecha',
-            align: 'start',
+            align: 'Center',
             value: 'Fecha',
           },
            { text: 'Casos recuperados', value: 'Casos recuperados' ,filterable: false},
@@ -94,17 +104,36 @@ import axios from "axios";
                        }
                         result.push(obj);
                     }
+                   
                    return result; 
                     }
                    this.desserts = csvJSON(datos.data)
                    //this.desserts.filter(Boolean)
-                   this.desserts.sort((a , b)=>b - a)
+               },
+               customSort(items, index, isDescending) {
+                // The following is informations as far as I researched.
+                // items: 'food' items
+                // index: Enabled sort headers value. (black arrow status).
+                // isDescending: Whether enabled sort headers is desc
+                items.sort((a, b) => {
+                    if (index === 'fecha') {
+                        if (isDescending) {
+                            return b.fecha - a.fecha;
+                        } else {
+                            return a.fecha - b.fecha;
+                        }
+                    }
+                });
 
-               }        
+                return items;
+              }  
+               
+               
+
         },
         created(){
             this.getNacional()
         },
-            
+                    
   }
 </script>

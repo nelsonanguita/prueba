@@ -22,6 +22,8 @@
       :items-per-page="15"
       :search="search"
        dense
+       sortBy="Ventiladores"
+       update: sort-desc
        
     ></v-data-table>
     <Comunas/>  

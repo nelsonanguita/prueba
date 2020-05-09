@@ -14,6 +14,7 @@
       ></v-text-field>
     </v-card-title>
     <v-data-table  
+
       :headers="headers"
       :items="desserts"
       :footer-props="{
@@ -22,6 +23,8 @@
       :items-per-page="25"
       :search="search"
        dense
+        sortBy="Comuna"
+        update: sort-asc
     ></v-data-table>
     <Comunas/>  
   </v-card>
@@ -60,7 +63,7 @@ import axios from "axios";
     },
     methods:{
             async getCasos(){
-              let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-05-01-CasosConfirmados.csv')        
+              let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-05-08-CasosConfirmados.csv')        
                //let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto25/CasosActualesPorComuna_std.csv')
                // this.desserts = datos.data;
                     //var csv is the CSV file with headers
@@ -90,7 +93,7 @@ import axios from "axios";
                    return result;
                     }
                    this.desserts = csvJSON(datos.data)
-                   
+
                }        
         },
         created(){

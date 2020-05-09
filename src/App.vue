@@ -17,27 +17,18 @@
               </v-app-bar>
                   
                     <v-navigation-drawer app v-model="drawer" temporary >
-                          <v-card
-                            class="mx-auto"
-                            max-width="600"
-                            permanent
-                            absolute
-                            
-                          >
+                          <v-app-bar  
+                          @click="drawer = !drawer" 
+                          color="#62B6CB"
+                          class="white--text"
+                          >              
+                          <v-app-bar-nav-icon class="white--text" ></v-app-bar-nav-icon>
+                          <v-toolbar-title ></v-toolbar-title>
+                          
+                                                
+                          </v-app-bar>
+                                                    <v-spacer></v-spacer>
 
-                          <v-card color="#62B6CB" class="white--text text-center position-fixed"> 
-                              
-                             <div justify-cente>
-                                <v-app-bar-nav-icon  class="white--text"  @click="drawer = !drawer">                                    
-                                   </v-app-bar-nav-icon>
-
-                                    <h1 >Ver totales por</h1>
-                                 </div>
-                                  
-                              
-
-
-                          </v-card>
                           <v-divider></v-divider>
 
                             <v-list>
@@ -108,16 +99,13 @@ export default {
       
      drawer:null,
      items: [
+     
         {
           icon: 'mdi-chart-line',
           text: 'Casos de hoy',
           ref: 'Nacional',
         },
-        {
-          icon: 'mdi-fan-alert',
-          text: '',
-          ref: '',
-        },
+     
         {
           icon: 'mdi-chart-areaspline',
           text: 'Casos por comuna',
