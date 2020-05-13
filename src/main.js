@@ -5,9 +5,9 @@ import store from './store'
 import vuetify from '@/plugins/vuetify' // path to vuetify export
 Vue.config.productionTip = false
 import Vuetify from 'vuetify'
+import 'bootstrap/dist/css/bootstrap.css'
 
-import zingchartVue from 'zingchart-vue';
-Vue.component('zingchart', zingchartVue)
+
 Vue.use(Vuetify, {
  iconfont: 'fa'
 })
@@ -20,7 +20,7 @@ new Vue({
   router,
   store,
   vuetify,
-  
+  axios,
   icons: {
     iconfont: 'faSvg', // The bees knees, what most people are looking for.
   },

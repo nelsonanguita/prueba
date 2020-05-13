@@ -17,10 +17,10 @@
       :headers="headers"
       :items="desserts"
       :footer-props="{
-          'items-per-page-options': [15, 20, 30, 40, 50]
+          'items-per-page-options': [15, 20, 30, 40, 100]
       }"
       
-      :items-per-page="20"
+      :items-per-page="100"
       :search="search"
        dense
         sortBy="Nombre"
@@ -43,7 +43,7 @@ import axios from "axios";
       return {
         rowsPerPageItems: [10, 20, 30, 40],
         pagination: {
-          rowsPerPage: 20
+          rowsPerPage: 100
       },
         desserts:[],
         search: '',
