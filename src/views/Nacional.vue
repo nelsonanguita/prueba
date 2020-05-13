@@ -4,30 +4,30 @@
 
     <v-card-title >
         Total de Casos Diarios Acumulados 
-
-              <v-spacer></v-spacer>
       <v-text-field
-              
-
         hide-details
       ></v-text-field>
+              <v-spacer></v-spacer>
+
       <div  >
 
         <template >
       
     </template>
-            <v-responsive :ratio="16/9">
+            <v-responsive :ratio="16/9" >
                         <v-data-table 
-                           class="text-xs-center"
+                           :data="headers"
                           :headers="headers"
                           :items="desserts"
+
                           :search="search"
                           dense
-                            sortBy="Fecha"
-                            update: sort-desc
-                            flex display-3
-                             text-center
-                        >
+                          sortBy="Fecha"
+                          update: sort-desc
+                          flex display-3
+                         class="elevation-1"
+                         :header-row-style="{textAlign: 'justify'}"
+                       >
                        <template v-slot:header.Fecha="{ header }">
                         {{ header.text.toUpperCase() }}
                       </template> 

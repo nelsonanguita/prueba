@@ -23,9 +23,13 @@
       :items-per-page="20"
       :search="search"
        dense
-         sortBy="Estado"
+        sortBy="Nombre"
         update: sort-asc
-    ></v-data-table>
+           group-by="Estado"
+        
+    >
+     
+    </v-data-table>
     <Comunas/>  
   </v-card>
 </template>

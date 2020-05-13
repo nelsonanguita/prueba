@@ -5,6 +5,9 @@ import store from './store'
 import vuetify from '@/plugins/vuetify' // path to vuetify export
 Vue.config.productionTip = false
 import Vuetify from 'vuetify'
+
+import zingchartVue from 'zingchart-vue';
+Vue.component('zingchart', zingchartVue)
 Vue.use(Vuetify, {
  iconfont: 'fa'
 })

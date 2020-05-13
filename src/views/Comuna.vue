@@ -2,7 +2,7 @@
   
   <v-card >
     <v-card-title dark>
-      Total de Casos por Comunas
+      10 comunas con más casos
         <v-spacer></v-spacer>
 
       <v-text-field
@@ -18,15 +18,20 @@
       :headers="headers"
       :items="desserts"
       :footer-props="{
-          'items-per-page-options': [15, 20, 30, 40, 50]
+          'items-per-page-options': [10]
       }"
-      :items-per-page="25"
+      :items-per-page="10"
       :search="search"
        dense
-        sortBy="Comuna"
-        update: sort-asc
-    ></v-data-table>
-    <Comunas/>  
+       sortBy="Casos Confirmados"
+       update: sort-desc
+        
+       
+  
+    
+    >
+    
+    </v-data-table>
   </v-card>
 </template>
 
@@ -39,7 +44,7 @@ import axios from "axios";
       return {
         rowsPerPageItems: [10, 20, 30, 40],
         pagination: {
-          rowsPerPage: 20
+        rowsPerPage: 20
       },
         desserts:[],
         search: '',
@@ -52,8 +57,8 @@ import axios from "axios";
           },
           { text: 'Población', value: 'Poblacion',filterable: false},
           { text: 'Casos Confirmados', value: 'Casos Confirmados' ,filterable: false},
-          //{ text: 'Carbs (g)', value: 'carbs' ,filterable: false},
-          //{ text: 'Protein (g)', value: 'protein' ,filterable: false},
+          { text: 'Region', value: 'Region' ,filterable: false},
+          { text: 'Codigo', value: 'Codigo region' ,filterable: false},
           //{ text: 'Iron (%)', value: 'iron', filterable: false},
         ],
 
@@ -63,7 +68,7 @@ import axios from "axios";
     },
     methods:{
             async getCasos(){
-              let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-05-08-CasosConfirmados.csv')        
+              let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-05-11-CasosConfirmados.csv')        
                //let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto25/CasosActualesPorComuna_std.csv')
                // this.desserts = datos.data;
                     //var csv is the CSV file with headers

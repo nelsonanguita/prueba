@@ -54,16 +54,18 @@
                                   </v-list-item-content>
 
 
-
+ 
 
                                 </v-list-item>
                               </v-list-item-group>
                             </v-list>
-                          </v-card>
+                          
                     </v-navigation-drawer>
-                    
+                   
+            
+            
+               
 
-                    
                 </v-container>    
                   
      
@@ -71,7 +73,7 @@
         <router-view/>
 
       </v-container>
-    
+
           </v-content>
 
 
@@ -95,12 +97,16 @@
 
 
 <script>
+  import zingchartVue from 'zingchart-vue';
 
 export default {
+    components: {
+    zingchart: zingchartVue
+  },
   name: 'App',
   data(){
     return{
-      
+    
      drawer:null,
      items: [
      
@@ -127,10 +133,127 @@ export default {
         },
       ],
       model: 0,
+      chartData: {
+      type: "hbar", //pie mixed "hbar" tilemap  
+     
+      cache: {
+        data: true
+      },
+        
+      plot: {
+        borderColor: "#2B313B",
+        borderWidth: 6,
+        // slice: 90,
+        valueBox: {
+          placement: 'out',
+          text: '%t\n%npv%',
+          fontFamily: "Open Sans",
+          height: 10,
+          
+
+        },
+        tooltip:{
+          fontSize: '30',
+          fontFamily: "Open Sans",
+          padding: "5 10",
+          text: "%npv%"
+        },
+        animation:{
+          effect: 6, 
+          method: 5,
+          speed: 1400,
+          sequence: 2,
+          delay: 10
+        }
+      },
+    
+      title: {
+        fontColor: "#8e99a9",
+        text: 'Las 10 comunas con más contagios',
+        align: "center",
+        offsetX: 10,
+        fontFamily: "Open Sans",
+        fontSize: 25
+      },
+      subtitle: {
+        offsetX: 10,
+        offsetY: 10,
+        fontColor: "#8e99a9",
+        fontFamily: "Open Sans",
+        fontSize: "16",
+        text: 'Hasta el día',
+        align: "center"
+      },
+      plotarea: {
+        margin: "100 0 0 0"  
+      },
+      series : [
+        {
+          values : [11.38],
+          text: "Santiago",
+          backgroundColor: '#50ADF5',
+        },
+        {
+          values: [56.94],
+          text: "Osorno",
+          backgroundColor: '#FF7965',
+          detached:true
+        },
+        {
+          values: [14.52],
+          text: 'Temuco',
+          backgroundColor: '#FFCB45',
+          detached:true
+        },
+        {
+          text: 'Villarica',
+          values: [9.69],
+          backgroundColor: '#6877e5'
+        },
+        {
+          text: 'San Fernando',
+          values: [7.48],
+          backgroundColor: '#6FB07F'
+        }
+      ]
+}
 
     }
-
+     
   }
-}
+};
+
+  
+
+  
+
 </script>
+
+<style>
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+
+html,body {
+  width:100%;
+  height:100%;
+}
+#chartData {
+  width:100%;
+  height:100%;
+  min-height:250px;
+}
+.zc-ref {
+  display: none;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
 

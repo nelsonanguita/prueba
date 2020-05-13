@@ -5,13 +5,6 @@
       Total de Ventiladores a Nivel Nacional
         <v-spacer></v-spacer>
 
-      <v-text-field
-        v-model="search"
-        append-icon=""
-        label=""
-        single-line
-        hide-details
-      ></v-text-field>
     </v-card-title>
     <v-data-table 
       :headers="headers"
