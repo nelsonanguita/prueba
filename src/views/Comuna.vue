@@ -1,6 +1,12 @@
 <template>
   
+
+
+  
   <v-card >
+
+
+           
     <v-card-title dark>
       10 comunas con más casos
         <v-spacer></v-spacer>
@@ -68,7 +74,7 @@ import axios from "axios";
     },
     methods:{
             async getCasos(){
-              let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-05-11-CasosConfirmados.csv')        
+              let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-05-15-CasosConfirmados.csv')        
                //let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto25/CasosActualesPorComuna_std.csv')
                // this.desserts = datos.data;
                     //var csv is the CSV file with headers

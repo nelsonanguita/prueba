@@ -1,4 +1,4 @@
-<template>
+<template >
 <v-app>
   <v-content >
 
@@ -62,16 +62,13 @@
                           
                     </v-navigation-drawer>
                    
-            
-
                
                 </v-container>    
-                 
-                
+      
      
       <v-container>
-        <router-view/>
 
+              <router-view/>
       </v-container>
 
           </v-content>
@@ -107,9 +104,21 @@ export default {
   data(){
     return{
   
+    chartData:{
+      '2020-05-09' : 8,
+      '2020-05-14' : 3,
+      '2020-05-23' : 7,
+      '2020-05-24' : 1,
+
+    },
      drawer:null,
      items: [
      
+        {
+          icon: 'mdi-chart-line',
+          text: 'Graficos',
+          ref: 'Home',
+        },    
         {
           icon: 'mdi-chart-line',
           text: 'Casos de hoy',

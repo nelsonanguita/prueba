@@ -6,6 +6,8 @@ import vuetify from '@/plugins/vuetify' // path to vuetify export
 Vue.config.productionTip = false
 import Vuetify from 'vuetify'
 import 'bootstrap/dist/css/bootstrap.css'
+import Chartkick from 'vue-chartkick'
+import Chart from 'chart.js'
 
 
 Vue.use(Vuetify, {
@@ -13,7 +15,7 @@ Vue.use(Vuetify, {
 })
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-
+Vue.use(Chartkick.use(Chart))
 Vue.use(VueAxios, axios)
 
 new Vue({
@@ -21,9 +23,13 @@ new Vue({
   store,
   vuetify,
   axios,
+  Chartkick,
   icons: {
     iconfont: 'faSvg', // The bees knees, what most people are looking for.
   },
+  
+
+
   render: h => h(App)
 }).$mount('#app')
 

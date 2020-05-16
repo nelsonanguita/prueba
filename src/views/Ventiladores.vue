@@ -8,6 +8,7 @@
     </v-card-title>
     <v-data-table 
       :headers="headers"
+
       :items="desserts"
       :footer-props="{
           'items-per-page-options': [15, 20, 30, 40, 50]
@@ -18,8 +19,9 @@
        sortBy="Ventiladores"
        update: sort-desc
        
+    
+
     ></v-data-table>
-    <Comunas/>  
   </v-card>
 </template>
 
