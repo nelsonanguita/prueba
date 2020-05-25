@@ -8,7 +8,7 @@
 
            
     <v-card-title dark>
-      10 comunas con más casos
+        Comunas ordenadas por mayor numero de casos
         <v-spacer></v-spacer>
 
       <v-text-field
@@ -20,7 +20,7 @@
       ></v-text-field>
     </v-card-title>
     <v-data-table  
-
+      class="subtitle-2 text-center"
       :headers="headers"
       :items="desserts"
       :footer-props="{
@@ -31,7 +31,7 @@
        dense
        sortBy="Casos Confirmados"
        update: sort-desc
-        
+
        
   
     
@@ -74,7 +74,7 @@ import axios from "axios";
     },
     methods:{
             async getCasos(){
-              let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-05-15-CasosConfirmados.csv')        
+              let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-05-22-CasosConfirmados.csv')        
                //let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto25/CasosActualesPorComuna_std.csv')
                // this.desserts = datos.data;
                     //var csv is the CSV file with headers

@@ -8,8 +8,8 @@ import Vuetify from 'vuetify'
 import 'bootstrap/dist/css/bootstrap.css'
 import Chartkick from 'vue-chartkick'
 import Chart from 'chart.js'
-
-
+import HighchartsVue from 'highcharts-vue'
+Vue.use(HighchartsVue)
 Vue.use(Vuetify, {
  iconfont: 'fa'
 })
