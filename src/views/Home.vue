@@ -2,7 +2,7 @@
 <v-app>
   <v-content class="text-center" d-flex center mb-6 >
          <h1 > 10 comunas con más contagios </h1>
-        <bar-chart color="grey lighten-2" adapter="chartjs" xAxisID:="Comunas" :labels="labels" xtitle="Suma entregada por el MINSAL en la fecha 18-05" ytitle="Comunas" :data="Comunas2"  label="Casos" > </bar-chart>
+        <bar-chart color="grey lighten-2" adapter="chartjs" xAxisID:="Comunas" :labels="labels" xtitle="Suma entregada por el MINSAL en la fecha 27-05" ytitle="Comunas" :data="Comunas2"  label="Casos" > </bar-chart>
 
 
  </v-content>
@@ -38,16 +38,16 @@ export default {
 				}]
 			},
     Comunas2:[
-          [ 'Santiago', 3935],
-          [ 'Puente Alto', 3658],
-          [ 'La Florida', 2514],
-          [ 'Recoleta', 2135],
-          [ 'Peñalolen', 2160],
-          [ 'Maipu', 2000],
-          [ 'Independencia', 1699],
-          [ 'San Bernardo', 1807],
-          [ 'Quilicura', 1593],
-          [ 'Estación Central', 1466],
+          [ 'Santiago', 4618],
+          [ 'La Florida', 3256],
+          [ 'Recoleta', 2560],
+          [ 'Peñalolen', 2878],
+          [ 'Maipu', 2537],
+          [ 'Puente Alto', 4495],
+          [ 'Independencia', 1984],
+          [ 'San Bernardo', 2116],
+          [ 'Quilicura', 1968],
+          [ 'La Pintana', 1804],
           
 
     ],
