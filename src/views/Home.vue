@@ -38,16 +38,16 @@ export default {
 				}]
 			},
     Comunas2:[
-          [ 'Santiago', 5617],
-          [ 'La Florida', 3927],
-          [ 'Recoleta', 3287],
-          [ 'Peñalolen', 3505],
-          [ 'Maipu', 3193],
-          [ 'Puente Alto', 5770],
-          [ 'Independencia', 2566],
-          [ 'San Bernardo', 2539],
-          [ 'Quilicura', 2644],
-          [ 'La Pintana', 2379],
+          [ 'Santiago', 6278],
+          [ 'La Florida', 4550],
+          [ 'Recoleta', 3623],
+          [ 'Peñalolen', 4207],
+          [ 'Maipu', 3765],
+          [ 'Puente Alto', 6698],
+          [ 'Independencia', 2923],
+          [ 'San Bernardo', 2877],
+          [ 'Quilicura', 3091],
+          [ 'La Pintana', 2861],
           
 
     ],
