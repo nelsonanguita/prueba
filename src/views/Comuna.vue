@@ -63,8 +63,8 @@ import axios from "axios";
           },
           { text: 'Población', value: 'Poblacion',filterable: false},
           { text: 'Casos Confirmados', value: 'Casos Confirmados' ,filterable: false},
-          { text: 'Region', value: 'Region' ,filterable: false},
-          { text: 'Codigo', value: 'Codigo region' ,filterable: false},
+         // { text: 'Region', value: 'Region' ,filterable: false},
+         // { text: 'Codigo', value: 'Codigo region' ,filterable: false},
           //{ text: 'Iron (%)', value: 'iron', filterable: false},
         ],
 
