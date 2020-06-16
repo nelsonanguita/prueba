@@ -74,7 +74,7 @@ import axios from "axios";
     },
     methods:{
             async getCasos(){
-              let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-06-01-CasosConfirmados.csv')        
+              let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-06-12-CasosConfirmados.csv')        
                //let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto25/CasosActualesPorComuna_std.csv')
                // this.desserts = datos.data;
                     //var csv is the CSV file with headers
@@ -100,13 +100,14 @@ import axios from "axios";
                        }
                         result.push(obj);
                     }
-                   
+
                    return result;
                     }
                    this.desserts = csvJSON(datos.data)
 
                }        
         },
+       
         created(){
             this.getCasos()
         },

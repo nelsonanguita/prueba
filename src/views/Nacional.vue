@@ -3,6 +3,7 @@
   <v-card >
 
     <v-card-title >
+
         Total de Casos Diarios Acumulados 
       <v-text-field
         hide-details
@@ -12,6 +13,8 @@
       <div  >
 
         <template >
+
+         
       
     </template>
             <v-responsive :ratio="16/9" >
@@ -40,6 +43,7 @@
     <Comunas/>  
   </v-card>
 </template>
+     
 
 <script>
  import mdiViewHeadline from '@mdi/js';
@@ -92,13 +96,26 @@ import axios from "axios";
                         for(var j=0;j<headers.length;j++){
 
                              // var myarray = currentline;
-                             // edito la variable `myarray` dentro de `N`
+                             // edito la variable `myarray` dentro de `N`rego
                               // y le asigno el valor "13"
-                            currentline[3] = parseInt(currentline[3]).toFixed().toString() //Casos recuperados
+                            //currentline[3] = parseInt(currentline[3]).toFixed().toString() //Casos recuperados
+                            if(isNaN(parseInt(currentline[3]).toFixed().toString())){
+                                currentline[3] = "-"
+                            }else{
+                              currentline[3] = parseInt(currentline[3]).toFixed().toLocaleString("es-CL").toString() //Casos recuperados
+                              
+                            }
                             currentline[5] = parseInt(currentline[5]).toFixed().toString() //Casos activos
                             currentline[4] = parseInt(currentline[4]).toFixed().toString() //Fallecidos
                             currentline[1] = parseInt(currentline[1]).toFixed().toString() //Casos nuevos con sintomas
-                            currentline[6] = parseInt(currentline[6]).toFixed().toString() //Casos nuevos sin sintomas
+                            //currentline[6] = parseInt(currentline[6]).toFixed().toString() //Casos nuevos sin sintomas
+
+                           if(isNaN(parseInt(currentline[6]).toFixed().toString())){
+                                currentline[6] = "-"//Casos nuevos sin sintomas
+                            }else{
+                              currentline[6] = parseInt(currentline[6]).toFixed().toLocaleString("es-CL")//Casos nuevos sin sintomas
+                              
+                            }
                             currentline[7] = parseInt(currentline[7]).toFixed().toString() //Casos nuevos totales
                             currentline[2] = parseInt(currentline[2]).toFixed().toString() //Casos totales
                          obj[headers[j]] = currentline[j];  

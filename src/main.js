@@ -9,6 +9,16 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Chartkick from 'vue-chartkick'
 import Chart from 'chart.js'
 import HighchartsVue from 'highcharts-vue'
+
+import Highcharts from 'highcharts'
+import stockInit from 'highcharts/modules/stock'
+import mapInit from 'highcharts/modules/map'
+import addWorldMap from './js/worldmap'
+
+stockInit(Highcharts)
+mapInit(Highcharts)
+addWorldMap(Highcharts)
+
 Vue.use(HighchartsVue)
 Vue.use(Vuetify, {
  iconfont: 'fa'
