@@ -1,7 +1,7 @@
 <template >
   <v-app>
     <v-content class="text-center" d-flex center mb-6 >
-          <h1 > 10 comunas con más contagios </h1>
+          <h1 > Santiago </h1>
               <bar-chart v-if="false" color="grey lighten-2" adapter="chartjs" xAxisID:="Comunas"  xtitle="" ytitle="Comunas" :data="Comunas2"  label="Casos" > </bar-chart>
           <mapChart></mapChart>
     </v-content>
