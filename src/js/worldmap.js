@@ -3,5 +3,5 @@ var mapData = {"crs":{"properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"},"typ
 export { mapData }
 
 export default function map (Highcharts) {
-  Highcharts.maps['myMapName'] = mapData
+  Highcharts.maps['Santiago'] = mapData
 }

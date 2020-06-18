@@ -81,7 +81,7 @@
 
           >
             <v-col
-            class="py-4 text-center white--text"              cols="12"
+            class="py-4 text-center white--text" cols="12"
             >
               {{ new Date().getFullYear() }} — <strong>NAAN</strong>
             </v-col>

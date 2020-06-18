@@ -1,9 +1,9 @@
 <template >
   <v-app>
-    <v-content class="text-center" d-flex center mb-6 >
-          <h1 > Santiago </h1>
+
+    <v-content class="text-center">
               <bar-chart v-if="false" color="grey lighten-2" adapter="chartjs" xAxisID:="Comunas"  xtitle="" ytitle="Comunas" :data="Comunas2"  label="Casos" > </bar-chart>
-          <mapChart></mapChart>
+    <mapChart></mapChart>
     </v-content>
 
 
@@ -27,30 +27,10 @@ export default {
 //"{ name: 'fotos',params:{id : item}}"
   data(){
     return{
-     
-    chartOptions: {
-				series: [{
-					data: []
-				}]
-			},
-    Comunas2:[
-          [ 'Santiago', 8818],
-          [ 'La Florida', 6879],
-          [ 'Recoleta', 4716],
-          [ 'Peñalolen', 6360],
-          [ 'Maipu', 6272],
-          [ 'Puente Alto', 10804],
-          [ 'Independencia', 4056],
-          [ 'San Bernardo', 4688],
-          [ 'Quilicura', 4591],
-          [ 'La Pintana', 4674],
-          ],
-    }
-  },
+         
+  }
   
-
-  
-  
+}
 }
 
 </script>

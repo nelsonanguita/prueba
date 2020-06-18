@@ -30,6 +30,7 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/Ventiladores.vue')
   },
 
+
 ]
 
 const router = new VueRouter({

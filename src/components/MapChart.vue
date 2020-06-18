@@ -1,24 +1,48 @@
 <template>
-  <highcharts v-if="loaded"  :constructor-type="'mapChart'" :options="mapOptions" class="map"></highcharts>
+
+   <div>  
+                                   <h1 class="text-center"> {{selected}} </h1>
+
+    <div >
+        <v-select v-model="selected" :options="options" >  
+        </v-select>
+    </div >
+    
+     
+    
+    <highcharts v-if="loaded"  :constructor-type="'mapChart'" :options="mapOptions" class="map"></highcharts> 
+        
+    </div> 
+    
 </template>
 
 <script>
 import axios from "axios";
-
+import MapChart from '@/components/MapChart'
+import "vue-select/dist/vue-select.css";
 export default {
+components: {
+    mapChart: MapChart
+      
+    },
   data () {
 
     return {
+        
+        key:'',
         mapOptions: {},
         loaded: false,
         casos: [],
+        mapa: '',
+        options: ['Arica','Santiago','Valparaiso','Maule','Libertador Bernardo Ohiggins','Santiago2'],
+        selected:'Seleccione una región'
               
     }
   },
   async mounted(){
-    this.filldata()
+    this.filldata(this.mapa)
     this.loaded = false
-
+    this.mapa ='Santiago'
    await this.getFavoriot()
 
   },
@@ -27,10 +51,11 @@ export default {
 
   filldata(){
          this.mapOptions = {
-           
+                      
               chart: {
-                map: 'myMapName'
+                map: this.mapa//this.mapa //''
               },
+            
               title: {
                 text: 'Caso al día de 14-06 '
               },
@@ -51,7 +76,8 @@ export default {
               colorAxis: {
                 min: 0
               },     
-            
+              
+             
               series: [{
                 data : this.casos,
 
@@ -79,9 +105,9 @@ export default {
   
    },
    async getFavoriot(){
-           console.log("getfavooo")
-          let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-06-12-CasosConfirmados.csv'); 
-          
+
+          let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-06-15-CasosConfirmados.csv'); 
+
           function csvJSON(csv){
 
                     let lines = csv.split("\n");
@@ -104,14 +130,21 @@ export default {
                 this.casos = csvJSON(datos.data)
                 this.loaded = true
                 this.filldata()
-    }
- 
+    },
+    
 },
+
+watch:{
+      'selected': function (val, oldval) {
+              this.mapa = val  
+              this.filldata()
+      }
+    },
+
 created(){
  // this.getFavoriot()
 }
  
-
 }
 </script>
  <style scoped>
