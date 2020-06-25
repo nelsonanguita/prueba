@@ -1,11 +1,12 @@
 
+
 import Highcharts from 'highcharts'
 import adddMapa from 'highcharts/modules/exporting'
 import mapInit from 'highcharts/modules/map'
 
 var mapData = {}
 async function fetchAsync (){
-  let url = await fetch('https://raw.githubusercontent.com/jlhonora/geo/master/region_del_maule/all.geojson')
+  let url = await fetch('https://raw.githubusercontent.com/jlhonora/geo/master/region_de_antofagasta/all.geojson')
   let data = await url.json();
 // let obj = await (await fetch(url)).json()
 // return obj
@@ -21,7 +22,7 @@ fetchAsync()
 
 
 export default function mostrar(va){
-  Highcharts.maps['Maule']= va;
+  Highcharts.maps['Antofagasta']= va;
   
 mapInit(Highcharts);
 adddMapa(Highcharts);

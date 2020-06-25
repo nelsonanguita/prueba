@@ -8,9 +8,9 @@
         </v-select>
     </div >
     
-     
+     		 	
     
-    <highcharts v-if="loaded"  :constructor-type="'mapChart'" :options="mapOptions" class="map"></highcharts> 
+    <highcharts  v-if="loaded"  :constructor-type="'mapChart'" :options="mapOptions" class="map"></highcharts> 
         
     </div> 
     
@@ -20,6 +20,7 @@
 import axios from "axios";
 import MapChart from '@/components/MapChart'
 import "vue-select/dist/vue-select.css";
+
 export default {
 components: {
     mapChart: MapChart
@@ -28,28 +29,27 @@ components: {
   data () {
 
     return {
-        
         key:'',
         mapOptions: {},
         loaded: false,
         casos: [],
         mapa: '',
-        options: ['Arica','Santiago','Valparaiso','Maule','Libertador Bernardo Ohiggins','Santiago2'],
-        selected:'Seleccione una región'
+        options: ['Arica','Antofagasta','Santiago','Valparaiso','Maule','Libertador Bernardo Ohiggins','Metropolitana'],
+        selected:'Seleccione una Región',
               
     }
   },
   async mounted(){
     this.filldata(this.mapa)
     this.loaded = false
-    this.mapa ='Santiago'
-   await this.getFavoriot()
+    this.mapa = ''
+   await this.casosActivos()
 
   },
   methods:{
     
 
-  filldata(){
+      filldata(){
          this.mapOptions = {
                       
               chart: {
@@ -57,7 +57,7 @@ components: {
               },
             
               title: {
-                text: 'Caso al día de 14-06 '
+                text: 'Caso "ACTIVOS" al día de 23-06 '
               },
               subtitle: {
                 text: ''//'Caso al día de 14-06 '
@@ -101,13 +101,11 @@ components: {
               ]
       
          }
-                          
-  
+            
    },
    async getFavoriot(){
 
-          let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-06-15-CasosConfirmados.csv'); 
-
+          let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-06-19-CasosConfirmados.csv'); 
           function csvJSON(csv){
 
                     let lines = csv.split("\n");
@@ -118,8 +116,8 @@ components: {
                         let currentline = lines[i].split(",");
                               
                         for(let j=0;j<1;j++){
-                                                    
-                        //var filtered = currentline.filter(Boolean);
+                         //2-comuna 5-cantidad 
+                         //var filtered = currentline.filter(Boolean);
                         var a =[currentline[2] , parseInt(currentline[5])] 
 
                        }
@@ -127,25 +125,58 @@ components: {
                     }
                    return result;
                     }
+
+
                 this.casos = csvJSON(datos.data)
                 this.loaded = true
                 this.filldata()
     },
-    
+
+    async casosActivos(){
+                let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto19/CasosActivosPorComuna_std.csv'); 
+                // 2-comuna 6-cantidad
+                function csvJSON(csv){
+                      var a =[]
+                    let lines = csv.split("\n");
+                    var result = [];
+                    let headers=lines[0].split(",");
+                    for(let i=1;i<lines.length-1;i++){
+                        let obj = [];
+                        let currentline = lines[i].split(",");
+                              
+                        for(let j=0;j<1;j++){
+                         //2-comuna 5-cantidad 
+                         //var filtered = currentline.filter(Boolean);
+
+                         if (currentline[5]==="2020-06-23"){
+                           a =[ currentline[2] , parseInt(currentline[6]) ]
+                           result.push(a);
+                         }
+
+                       }
+                          
+                    }
+                   return result;
+                    }
+
+                this.casos = csvJSON(datos.data)
+                this.loaded = true
+                this.filldata()
+    }
+       
 },
 
 watch:{
       'selected': function (val, oldval) {
-              this.mapa = val  
-              this.filldata()
+             this.mapa = val
+             this.filldata()
       }
     },
 
 created(){
- // this.getFavoriot()
+  }
 }
- 
-}
+
 </script>
  <style scoped>
 .map {

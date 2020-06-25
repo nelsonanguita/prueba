@@ -28,7 +28,7 @@
                           sortBy="Fecha"
                           update: sort-desc
                           flex display-3
-                         class="elevation-1"
+                         class="elevation-1 white-space: nowrap"
                          :header-row-style="{textAlign: 'justify'}"
                        >
                        <template v-slot:header.Fecha="{ header }">

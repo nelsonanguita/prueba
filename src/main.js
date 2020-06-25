@@ -19,8 +19,8 @@ import addValpoMap from './js/valparaiso'
 import addMauleMap from './js/maule'
 import addRancaguaMap from './js/rancagua'
 import addSantiago2Map from './js/santiago2'
-
 import addAricaMap from './js/arica'
+import addAntofagastaMap from './js/antofagasta'
 
 //selector
 import vSelect from 'vue-select'
@@ -32,11 +32,11 @@ Vue.component('v-select', vSelect)
 //stockInit(Highcharts)
 mapInit(Highcharts)
 addWorldMap(Highcharts)
-addValpoMap(Highcharts)
-addMauleMap(Highcharts)
-addRancaguaMap(Highcharts)
-addSantiago2Map(Highcharts)
-addAricaMap(Highcharts)
+//addValpoMap(Highcharts)
+//addMauleMap(Highcharts)
+//addRancaguaMap(Highcharts)
+//addSantiago2Map(Highcharts)
+//addAricaMap(Highcharts)
 
 
 

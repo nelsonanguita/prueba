@@ -30,7 +30,7 @@
                                                 
                           </v-app-bar>
                           <div> 
-                         <v-img :aspect-ratio="16/9" src="http://www.unionprofesional.com/wp-content/uploads/2020/04/COVID-19-corona-coronavirus-696x492.jpg">
+                         <v-img :aspect-ratio="16/9" src="">
       </v-img>             
                     </div>
                                                     <v-spacer></v-spacer>
