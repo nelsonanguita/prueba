@@ -57,7 +57,7 @@ components: {
               },
             
               title: {
-                text: 'Caso "ACTIVOS" al día de 23-06 '
+                text: 'Caso "ACTIVOS" al día de 2020-06-28 '
               },
               subtitle: {
                 text: ''//'Caso al día de 14-06 '
@@ -105,7 +105,7 @@ components: {
    },
    async getFavoriot(){
 
-          let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-06-19-CasosConfirmados.csv'); 
+          let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-06-28-CasosConfirmados.csv'); 
           function csvJSON(csv){
 
                     let lines = csv.split("\n");
@@ -148,7 +148,7 @@ components: {
                          //2-comuna 5-cantidad 
                          //var filtered = currentline.filter(Boolean);
 
-                         if (currentline[5]==="2020-06-23"){
+                         if (currentline[5]==="2020-06-28"){
                            a =[ currentline[2] , parseInt(currentline[6]) ]
                            result.push(a);
                          }
