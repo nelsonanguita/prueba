@@ -72,6 +72,11 @@ import axios from "axios";
         
       }
     },
+  async mounted(){
+  //  this.getCasos(this.mapa)
+    await this.getCasos()
+
+  },
     methods:{
             async getCasos(){
               let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto2/2020-06-12-CasosConfirmados.csv')        
@@ -103,6 +108,8 @@ import axios from "axios";
 
                    return result;
                     }
+
+
                    this.desserts = csvJSON(datos.data)
 
                }        

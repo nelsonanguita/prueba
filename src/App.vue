@@ -1,21 +1,12 @@
 <template >
+
 <v-app>
+  <Cabecera ></Cabecera>
+
   <v-content >
 
                <v-container>
-
-              <v-app-bar app 
-              @click="drawer = !drawer" 
-              color="#62B6CB"
-              class="white--text"
-              >              
-              <v-app-bar-nav-icon class="white--text" ></v-app-bar-nav-icon>
-              <v-toolbar-title >Consultas</v-toolbar-title>
-
-              <v-spacer></v-spacer>
-                                     
-              </v-app-bar>
-                                             
+                           
                     <v-navigation-drawer app v-model="drawer" temporary >
                     
                           <v-app-bar  
@@ -61,11 +52,10 @@
                             </v-list>
                           
                     </v-navigation-drawer>
-                   
-               
+
                 </v-container>    
-      
-     
+
+
       <v-container>
 
               <router-view/>
@@ -74,43 +64,28 @@
           </v-content>
 
 
-      <v-card height="100">
-          <v-footer
-            absolute
-            color="#62B6CB"
-
-          >
-            <v-col
-            class="py-4 text-center white--text" cols="12"
-            >
-              {{ new Date().getFullYear() }} — <strong>NAAN</strong>
-            </v-col>
-          </v-footer>
-        </v-card>
-
+ 
+ 
+  <Footer></Footer>
 </v-app>
-   
+    
 </template>
 
 
 <script>
+import Cabecera from "@/components/Cabecera";  
+import Footer from "@/components/Footer";  
 
 export default {
-     components: {
-  },
-
   name: 'App',
-
+  components: {
+       Cabecera,
+       Footer,
+       
+  },
   data(){
     return{
-  
-    chartData:{
-      '2020-05-09' : 8,
-      '2020-05-14' : 3,
-      '2020-05-23' : 7,
-      '2020-05-24' : 1,
-
-    },
+     
      drawer:null,
      items: [
      
@@ -157,10 +132,10 @@ export default {
 <style>
 @import 'https://fonts.googleapis.com/css?family=Open+Sans';
 
-html,body {
-  width:100%;
-  height:100%;
-}
+    html,body {
+      width:100%;
+      height:100%;
+    }
 
 
 
