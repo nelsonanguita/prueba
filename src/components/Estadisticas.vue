@@ -39,7 +39,7 @@ methods:{
                     type: 'line'
                 },
                 title: {
-                    text: 'Casos Activos en las 2 ultimas semanas'
+                    text: 'Casos Activos'
                 },
                 subtitle: {
                     text: 'Fuente: Minsal'
@@ -98,7 +98,7 @@ methods:{
                 let data = lines[i].split(',');
                 let obj = {};
                 let totales = []
-                if ((data[2]=="Pudahuel")||(data[2]=="Santiago")||(data[2]=="Puente Alto")||(data[2]=="Cerro Navia")){
+                if ((data[2]=="Pudahuel")||(data[2]=="Santiago")||(data[2]=="Puente Alto")||(data[2]=="Cerro Navia")||(data[2]=="")){
                       
                     name = data[2]
                     for(var j = data.length-14; j < data.length; j++) {

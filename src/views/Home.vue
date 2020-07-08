@@ -2,7 +2,7 @@
   <v-app>
 <Estadisticas></Estadisticas>
 
-    <v-content class="text-center">
+    <v-main class="text-center">
               <bar-chart v-if="false" color="grey lighten-2" adapter="chartjs" xAxisID:="Comunas"  xtitle="" ytitle="Comunas" :data="Comunas2"  label="Casos" > </bar-chart>
                               <v-divider></v-divider>
                          
@@ -10,7 +10,7 @@
                               <v-divider></v-divider>
                               <v-divider></v-divider>
 
-    </v-content>
+    </v-main>
   </v-app>   
 </template>
 
