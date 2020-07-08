@@ -32,7 +32,7 @@ components: {
         mapOptions: {},
         loaded: false,
         casos: [],
-        mapa: '',
+        mapa: 'Santiago',
         options: ['Arica','Antofagasta','Santiago','Valparaiso','Maule','Libertador Bernardo Ohiggins','Metropolitana'],
         selected:'Seleccione una Región',
               
@@ -41,7 +41,7 @@ components: {
   async mounted(){
     this.filldata(this.mapa)
     this.loaded = false
-    this.mapa = ''
+    //this.mapa = 'Santiago'
    await this.casosActivos()
 
   },

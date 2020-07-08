@@ -1,10 +1,9 @@
 <template >
   <v-app>
-    <Estadisticas></Estadisticas>
+<Estadisticas></Estadisticas>
 
     <v-content class="text-center">
               <bar-chart v-if="false" color="grey lighten-2" adapter="chartjs" xAxisID:="Comunas"  xtitle="" ytitle="Comunas" :data="Comunas2"  label="Casos" > </bar-chart>
-                   <v-divider></v-divider>
                               <v-divider></v-divider>
                          
     <mapChart></mapChart>
@@ -12,8 +11,6 @@
                               <v-divider></v-divider>
 
     </v-content>
-
-
   </v-app>   
 </template>
 
@@ -25,13 +22,14 @@ import MapChart from '@/components/MapChart'
 import Estadisticas from "@/components/Estadisticas";  
 
 export default {
+  name: 'App',
   components: {
     highcharts: Chart,
     mapChart: MapChart,
     Estadisticas
   },
 
-  name: 'App',
+  
 //"{ name: 'fotos',params:{id : item}}"
   data(){
     return{

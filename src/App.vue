@@ -1,8 +1,17 @@
 <template >
 
 <v-app>
-  <Cabecera ></Cabecera>
+<v-app-bar app
+              @click="drawer = !drawer" 
+              color="#62B6CB"
+              class="white--text"
+              absolute
+              >              
+                <v-app-bar-nav-icon class="white--text" ></v-app-bar-nav-icon>
+                <v-toolbar-title >Consultas</v-toolbar-title>
 
+              <v-spacer></v-spacer>
+        </v-app-bar>
   <v-content >
 
                <v-container>
@@ -73,13 +82,13 @@
 
 
 <script>
-import Cabecera from "@/components/Cabecera";  
+//import Cabecera from "@/components/Cabecera";  
 import Footer from "@/components/Footer";  
 
 export default {
   name: 'App',
   components: {
-       Cabecera,
+    //   Cabecera,
        Footer,
        
   },

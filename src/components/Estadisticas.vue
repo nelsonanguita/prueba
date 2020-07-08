@@ -39,7 +39,7 @@ methods:{
                     type: 'line'
                 },
                 title: {
-                    text: 'Casos Recuperado y Activos en las 2 ultimas semanas'
+                    text: 'Casos Activos en las 2 ultimas semanas'
                 },
                 subtitle: {
                     text: 'Fuente: Minsal'
@@ -50,7 +50,7 @@ methods:{
                 },
                 yAxis: {
                     title: {
-                    text: 'En miles'
+                    text: ''
                     }
                 },
                 plotOptions: {
@@ -75,7 +75,9 @@ methods:{
     },
      async getInfo(){
          
-           let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto46/activos_vs_recuperados_t.csv')        
+          // let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto46/activos_vs_recuperados_t.csv')        
+           
+           let datos = await axios.get('https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto19/CasosActivosPorComuna.csv')
            let jsonObj = [];
            let arrFechas = []
            var info = []
@@ -96,12 +98,16 @@ methods:{
                 let data = lines[i].split(',');
                 let obj = {};
                 let totales = []
-                name = data[0]
-                for(var j = data.length-14; j < data.length; j++) {
-                    totales.push(parseInt(data[j])   ) 
+                if ((data[2]=="Pudahuel")||(data[2]=="Santiago")||(data[2]=="Puente Alto")||(data[2]=="Cerro Navia")){
+                      
+                    name = data[2]
+                    for(var j = data.length-14; j < data.length; j++) {
+                        totales.push(parseInt(data[j])   ) 
 
+                    }
+                    info.push(new capturar(name,totales))
                 }
-                info.push(new capturar(name,totales))
+                
                 }
             }
 
