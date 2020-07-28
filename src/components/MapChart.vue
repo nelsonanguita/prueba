@@ -3,7 +3,7 @@
    <div>  
         <h1 class="text-center"> {{selected}} </h1>
 
-        <div >
+        <div>
             <v-select v-model="selected" :options="options" >  
             </v-select>
         </div >
