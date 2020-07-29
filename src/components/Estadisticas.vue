@@ -1,39 +1,57 @@
 <template>
   <div>
+ 
+     <div class="container"> 
+       <div class="row">
+         <ul class="list-group">
+               <div class="input-group">
+                  <input
+                    v-model="search"
+                    type=" text"
+                    placeholder="Buscar comuna"
+                    class="form-control"
+                    
+                    onkeyup="javascript:this.value=this.value.toUpperCase();"
+                    v-on:keyup.enter="agregarComuna"
+                  />
+                  <span class="input-group-btn">
+                          <input type="button" class="btn btn-default" value="Agregar" v-on:click="agregarComuna" >
+                      </span>  
+                      <span class="input-group-btn">
+                          <input type="button" class="btn btn-default" value="Limpiar" v-on:click="limpiar">
+                      </span>  
+                </div>
+                                                              
 
-    <div class="container">
-        <div class="row">
-          <ul class="list-group">
-          <div class="input-group">
-            <input
-            type=" text"
-            placeholder="Buscar comuna"
-            class="form-control"
-            v-model="search"
-            onkeyup="javascript:this.value=this.value.toUpperCase();"
-            v-on:keyup.enter="agregarComuna"
-          />
-              <span class="input-group-btn">
-                  <input type="button" class="btn btn-default" value="Agregar" v-on:click="agregarComuna" >
-              </span>  
-               <span class="input-group-btn">
-                  <input type="button" class="btn btn-default" value="Limpiar" v-on:click="limpiar">
-              </span>  
-          </div>
+                  <v-card :elevation="-1">
+                       <v-list v-if="verLista" >
+                          <v-list-item-group :multiple="multiple" color="light-blue" v-model="listaAgregar" >
+                                <v-list-item
+                                
+                                  v-for="(item, i) in searchComuna"
+                                  :key="i"
+                                  v-bind:value="item.name"
+                                >
+                                <v-list-item-content >
+                                  
+                                 <v-select v-text="item.name">
+                                      
+                                 
+                                 </v-select>
+
+                                
+                                </v-list-item-content>
+                              
+                            </v-list-item>
+                        </v-list-item-group>
+                      </v-list>
+                  </v-card>
+         </ul>
           
-          <div v-if="verLista">
-            <ul class="list-group">
-              <li v-for="item in searchComuna" class="List-group-item" :key="item.id" v-bind="item" >
-              {{ item.name }}
-            </li>
-            </ul>
-            
-          </div>
-    </ul>
-        </div>
-    </div>
-    
-
+       </div>
+               
+               
+  </div>
     <highcharts
       v-if="loaded"
       class="chart highcharts-figure"
@@ -56,8 +74,13 @@ export default {
       loaded: false,
       verLista: false,
       info2: [],
-      model: null,
+       multiple: false,
       search: "",
+      seleccion:"",
+      listaAgregar:""
+   
+
+      //https://vuetifyjs.com/en/components/list-item-groups/
     };
   },
   async mounted() {
@@ -69,7 +92,7 @@ export default {
 
   methods: {
     getGrafico() {
-      this.chartOptions = {
+      this.chartOptions= {
         chart: {
           type: "line",
         },
@@ -88,6 +111,11 @@ export default {
           },
         },
         plotOptions: {
+           series: {
+            animation: {
+                duration: 4000
+            }
+        },
           line: {
             dataLabels: {
               enabled: true,
@@ -159,7 +187,8 @@ export default {
           this.name = name;
           this.data = tol;
         }
-      if (this.search) {
+        //this.search
+      if (this.search!="") {
         let pregunta = this.buscarComuna(this.search)
         this.informacion.push(new capturar(pregunta[0].name, pregunta[0].data));
         this.search = "";
@@ -182,6 +211,7 @@ export default {
       let comunaPrincipal = "PUDAHUEL";
       this.informacion = this.info2.filter((item) => item.name.includes(comunaPrincipal));
       this.getGrafico();
+      this.search = "";
      }
     
   },
@@ -199,7 +229,7 @@ export default {
   },
   watch: {
     search: function(val, oldval) {
-      if (this.search !== "") {
+      if (this.search != "") { 
         this.verLista = true;
         this.searchComuna.sort((a , b)=>b.name - a.name)
 
@@ -208,7 +238,12 @@ export default {
       }
 
     },
-  },
+       'listaAgregar': function (val, oldval) {
+             this.search = val
+             this.agregarComuna()
+      }
+  }
+
 };
 </script>
 
